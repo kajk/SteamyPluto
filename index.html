@@ -10,7 +10,9 @@
       Please <a href="#" id="login-link">authorize</a> to continue.
     </div>
     <div id="upload-container">
-      <button id="upload-button" onclick="uploadVideoHelper();">Upload</button>
+      <video id="replayVideo" width="320" height="240"></video>
+      <button id="upload-button" onclick="Recorder.startRecording(document.querySelector('#replayVideo')); return false;">Start Recording</button>
+      <button id="upload-button" onclick="Recorder.stopRecording(); return false;">Stop Recording</button>
     </div>
 
     <div class="post-upload">
@@ -27,6 +29,7 @@
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
     <script type="text/javascript" src="auth.js"></script>
     <script type="text/javascript" src="uploader.js"></script>
+<script type="text/javascript" src="recorder.js"></script>
   <!--  <script type="text/javascript" src="my_uploads.js"></script>-->
     <script src="https://apis.google.com/js/client.js?onload=googleApiClientReady"></script>
   </body>
