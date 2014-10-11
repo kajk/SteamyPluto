@@ -197,6 +197,32 @@ Brad and I feed and care for three alley cats, who long ago adopted our home as 
     </div>
 
 
+    <!-- Uploaded Review -->
+    <div id="uploadReviewContainer" class="hide">
+      <div class="row hide">
+        <div class="large-12 columns">
+          <small>0 of 0 people found the following review helpful</small>
+        </div>
+      </div>
+      <div class="row">
+        <div class="large-12 columns">
+          <img src="img/glyphicons_049_star.png" style="height: 15px">
+              <img src="img/glyphicons_049_star.png" style="height: 15px">
+              <img src="img/glyphicons_048_dislikes.png" style="height: 15px">
+              <img src="img/glyphicons_048_dislikes.png" style="height: 15px">
+              <img src="img/glyphicons_048_dislikes.png" style="height: 15px">
+              Video Review
+        </div>
+      </div>
+      <div class="row">
+        <div class="large-12 columns">
+          <iframe id="steamyPlutoVideo" width="560" height="315" src="" frameborder="0" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+
+
+
     <!-- Add customer review -->
     <div class="row">
       <div class="large-12 columns">
@@ -206,6 +232,17 @@ Brad and I feed and care for three alley cats, who long ago adopted our home as 
     <div class="row">
       <div class="large-12 columns">
         <div data-steamy-pluto></div>
+
+        <script type="text/javascript">
+          window.onSteamyPlutoUploaded = function(embedUrl) {
+            var plutoIframe = $("#steamyPlutoVideo"),
+                plutoContainer = $("#uploadReviewContainer");
+
+            plutoIframe.replaceWith(embedUrl);
+            plutoContainer.removeClass("hide");
+
+          }
+        </script>
       </div>
     </div>
 
