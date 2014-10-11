@@ -18,6 +18,7 @@
   var startbutton = document.querySelector("#startbutton"),
       stopbutton = document.querySelector("#stopbutton"),
       video = document.querySelector("#video"),
+      currentStream = null,
       mediaRecorder = null,
       mediaConstraints = { audio:true, video:true };
 
@@ -42,6 +43,9 @@ var videoOutput = document.querySelector("#videoOutput");
     if (!!mediaRecorder) {
       mediaRecorder.stop();
     }
+    if (!!currentStream) {
+      currentStream.stop();
+    }
   }
 
   function onMediaSuccess(stream) {
@@ -49,6 +53,7 @@ var videoOutput = document.querySelector("#videoOutput");
     video.width = 320;
     video.height = 240;
     video.src = URL.createObjectURL(stream);
+    currentStream = stream;
 
     mediaRecorder = new MediaRecorder(stream);
     mediaRecorder.mimeType = 'video/webm';
