@@ -17,7 +17,7 @@ function requestUserUploadsPlaylistId() {
     part: 'contentDetails'
   });
   request.execute(function(response) {
-    playlistId = response.result.items[0].contentDetails.relatedPlaylists.uploads;
+    playlistId = response.result.items[0].contentDetails.relatedPlaylists.likes;
     requestVideoPlaylist(playlistId);
   });
 }
