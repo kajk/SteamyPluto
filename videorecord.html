@@ -12,7 +12,7 @@
 <button id="stopbutton">End Record</button>
 <canvas id="canvas"></canvas> 
 <hr/>
-<div id="output"></div>
+<video id="videoOutput"></video>
 <script type="text/javascript">
 (function() {
   var startbutton = document.querySelector("#startbutton"),
@@ -21,7 +21,7 @@
       mediaRecorder = null,
       mediaConstraints = { audio:true, video:true };
 
-var output = document.querySelector("#output");
+var videoOutput = document.querySelector("#videoOutput");
 
   stopbutton.disabled = true;
 
@@ -58,11 +58,11 @@ var output = document.querySelector("#output");
       console.log("data available");
       b = new Blob([e.data], { type: e.data.type });
 
-      var a = document.createElement("a");
-      a.target = "_blank";
-      a.innerHTML = "Open Recorded Video"
-      a.href = URL.createObjectURL(b);
-      output.appendChild(a);
+      videoOutput.controls = false;
+      videoOutput.height = 320;
+      videoOutput.width = 240;
+      videoOutput.src = URL.createObjectURL(b);
+      videoOutput.play();
     }
 
     mediaRecorder.start();
